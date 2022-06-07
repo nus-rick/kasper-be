@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: nus
+      MYSQL_PASSWORD: RaNdOMSt0nGP@assW0rd
+      MYSQL_DB: kasper
+    volumes:
+      - ./dockerdb/mount:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
