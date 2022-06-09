@@ -6,7 +6,7 @@ import { successResponse, errorResponse } from './response';
 const router = Router();
 
 class PersonRouter implements IRouter {
-  get routes (){
+  get routes (): Router{
     router.get(
       '/',
       async (_req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {

@@ -2,11 +2,10 @@ import { Router } from 'express';
 import { IRouter } from './interfaces/IRouter';
 import PersonRouter from './PersonRouter';
 
-// Init router
 const router = Router();
 
 class BaseRouter implements IRouter {
-  get routes(){
+  get routes(): Router {
     router.use('/persons', PersonRouter.routes);
     return router;
   }

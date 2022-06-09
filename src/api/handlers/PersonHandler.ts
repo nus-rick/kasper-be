@@ -19,7 +19,7 @@ class PersonHandler implements IPersonHandler {
     }
   }
 
-  async create(payload: { name: string }): Promise<Person> {
+  async create(payload: { name: string, position: number }): Promise<Person> {
     try {
       const newPerson = new Person();
       newPerson.name = payload.name;
@@ -31,7 +31,7 @@ class PersonHandler implements IPersonHandler {
     }
   }
 
-  async update(id: number, payload: { name: string }): Promise<Person | null> {
+  async update(id: number, payload: { name: string, position: number }): Promise<Person | null> {
     try {
       const person = await this.repo.findOne({
         where: { id }

@@ -2,11 +2,11 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import baseRouter from './routes/index';
 
-interface ApiInterface {
+interface IApi {
   server(): Promise<Application>;
 }
 
-class Api implements ApiInterface {
+class Api implements IApi {
   async server(): Promise<Application> {
     const app = express();
     app.use(express.json());

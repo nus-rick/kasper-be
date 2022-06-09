@@ -6,4 +6,7 @@ import { IPerson } from './interfaces';
 export class Person extends Base implements IPerson {
   @Column({ name: 'name' })
   name: string
+
+  @Column({ name: 'position' })
+  position: number
 }
