@@ -23,6 +23,7 @@ class PersonHandler implements IPersonHandler {
     try {
       const newPerson = new Person();
       newPerson.name = payload.name;
+      newPerson.position = payload.position;
       const savedPerson = await this.repo.save(newPerson);
 
       return savedPerson;
@@ -42,6 +43,7 @@ class PersonHandler implements IPersonHandler {
       }
 
       person.name = payload.name;
+      person.position = payload.position;
 
       const savedPerson = await this.repo.save(person);
 
@@ -61,7 +63,7 @@ class PersonHandler implements IPersonHandler {
         return false;
       }
 
-      await this.repo.delete(person);
+      await this.repo.delete(person.id);
 
       return true;
     } catch (error) {

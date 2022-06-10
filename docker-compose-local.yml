@@ -1,6 +1,17 @@
 version: '3'
 services:
 
+  api:
+    image: node:16.15.0
+    command: yarn start
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password

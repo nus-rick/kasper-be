@@ -1,5 +1,5 @@
 import { Environment } from './config/enviroment';
-import api from './api';
+import server from './server';
 
 Environment.setup();
 
@@ -9,7 +9,7 @@ import database from './database';
 
 async function startApiServer() {
   await database.setup();
-  const app: Application = await api.server();
+  const app: Application = await server.server();
   app.listen(config.SERVER_PORT, () => {
     console.log(`Listening on port ${config.SERVER_PORT} in ${config.NODE_ENV} mode`);
   });

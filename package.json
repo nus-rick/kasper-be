@@ -2,10 +2,10 @@
   "name": "kasper-be",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc --build --clean && tsc",
+    "build": "tsc --outDir ./api && cp -R node_modules ./api/ && cp package.json ./api/",
     "lint": "eslint src/**/*.ts",
-    "start": "yarn lint && yarn build && yarn dev",
-    "dev": "node dist/index.js --watch",
+    "start": "yarn build && yarn dev",
+    "dev": "node ./api/index.js",
     "db:migrate": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts"
   },
   "dependencies": {
@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.6"
+    "typeorm": "^0.3.6",
+    "vercel": "^25.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
